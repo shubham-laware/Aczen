@@ -1,1 +1,5 @@
-{ "rewrites": [{ "source": "/(.*)", "destination": "/src/front/client/index.html" }] }
+{
+    "rewrites": [
+      { "source": "/(.*)", "destination": "/" }
+    ]
+  }
