@@ -15,15 +15,11 @@ function ServiceLinks({ versionName, versionLink }: ServiceLinksProps) {
       {versionName && versionLink && (
         <span>
           <a href={versionLink} target="_blank" rel="noreferrer">
-            {versionName}
+          ACZ2024
           </a>
         </span>
       )}
-      <span>
-        Powered by
-        {' '}
-        <a href={serviceLink} target="_blank" rel="noreferrer">OnOut - no-code tool to create Wallet</a>
-      </span>
+     
     </div>
   )
 }

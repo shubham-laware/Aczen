@@ -28,20 +28,8 @@ function Footer() {
     >
       { /* @ts-ignore */ }
       <WidthContainer styleName="container">
-        <SwitchLang />
 
-        {!config.isWidget && (
-          <p styleName="swapDescription">
-            <FormattedMessage
-              id="FooterSwapDescription"
-              defaultMessage="Online since 2018. Check our {twitter} and {github} history"
-              values={{
-                github: <a href={links.github} target="_blank" rel="noreferrer">github</a>,
-                twitter: <a href={links.twitter} target="_blank" rel="noreferrer">twitter</a>,
-              }}
-            />
-          </p>
-        )}
+       
         {!config.isWidget && <SocialMenu />}
 
         {showServiceLinks && (

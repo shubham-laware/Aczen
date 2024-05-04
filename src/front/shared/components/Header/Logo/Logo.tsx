@@ -11,6 +11,7 @@ import ThemeTooltip from '../../ui/Tooltip/ThemeTooltip'
 
 import logoBlack from 'shared/images/logo/logo-black.svg'
 import logoColored from 'shared/images/logo/logo-colored.svg'
+import AczenLogo from 'shared/images/logo/AczenLogo.svg'
 
 
 /* uncomment to debug */
@@ -36,7 +37,7 @@ class Logo extends Component<any, {}> {
       intl: { locale },
     } = this.props;
 
-    const isCustomLogo = window.logoUrl !== '#'
+    const isCustomLogo = AczenLogo !== '#'
     const customLogoUrl = isDark ?
       window.darkLogoUrl || window.logoUrl
       :
@@ -48,7 +49,7 @@ class Logo extends Component<any, {}> {
     const imgSrc = isCustomLogo ?
       customLogoUrl
       :
-      isMainnet ? logoColored : logoBlack
+      isMainnet ? AczenLogo : AczenLogo
 
     const imgAlt = window.location.hostname
 
@@ -58,12 +59,12 @@ class Logo extends Component<any, {}> {
       <div styleName="logoWrapper">
         {isCustomLogoLink ?
           <a href={goToUrl}>
-            <img src={imgSrc} alt={imgAlt} />
+            <img src={AczenLogo} alt={imgAlt} />
           </a>
           :
           <Fragment>
             <Link to={goToUrl} data-tip data-for="logo">
-              <img src={imgSrc} alt={imgAlt} />
+              <img src={AczenLogo} alt={imgAlt} />
             </Link>
             <ThemeTooltip id="logo" effect="solid" place="bottom">
               <FormattedMessage id="logo29" defaultMessage="Go Home" />

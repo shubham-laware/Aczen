@@ -12,7 +12,6 @@ import Button from 'components/controls/Button/Button'
 import Tooltip from 'shared/components/ui/Tooltip/Tooltip'
 import Table from 'components/tables/Table/Table'
 import ConnectWalletModal from 'components/modals/ConnectWalletModal/ConnectWalletModal'
-import Slider from './WallerSlider'
 import Row from './Row/Row'
 import styles from './Wallet.scss'
 
@@ -49,11 +48,7 @@ function CurrenciesList(props: CurrenciesListProps) {
     <div styleName="yourAssets">
       {showAssets && (
         <>
-          {(exConfig && exConfig.opts && exConfig.opts.showWalletBanners) || isWidgetBuild ? (
-            <Slider multisigPendingCount={multisigPendingCount} />
-          ) : (
-            ''
-          )}
+          
           <h3 styleName="yourAssetsHeading">
             <FormattedMessage id="YourAssets" defaultMessage="Your assets" />
           </h3>

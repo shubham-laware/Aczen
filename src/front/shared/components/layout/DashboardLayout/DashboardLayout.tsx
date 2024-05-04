@@ -3,7 +3,6 @@ import cssModules from 'react-css-modules'
 import { isMobile } from 'react-device-detect'
 import cx from 'classnames'
 import styles from './styles.scss'
-import FAQ from 'components/FAQ/FAQ'
 import { ModalConductorProvider } from 'components/modal'
 
 type ComponentProps = {
@@ -34,14 +33,7 @@ const DashboardLayout = (props: ComponentProps) => {
           <div styleName="walletBalance">
             {props.BalanceForm}
 
-            <div
-              className={cx({
-                [styles.desktopEnabledViewForFaq]: true,
-                [styles.faqWrapper]: true,
-              })}
-            >
-              <FAQ />
-            </div>
+            
           </div>
           <div
             styleName={cx({
@@ -52,14 +44,7 @@ const DashboardLayout = (props: ComponentProps) => {
           >
             <ModalConductorProvider>{children}</ModalConductorProvider>
           </div>
-          <div
-            className={cx({
-              [styles.mobileEnabledViewForFaq]: true,
-              [styles.faqWrapper]: true,
-            })}
-          >
-            <FAQ />
-          </div>
+         
         </div>
       </section>
     </article>

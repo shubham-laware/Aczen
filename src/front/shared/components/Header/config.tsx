@@ -29,12 +29,8 @@ export const messages = defineMessages({
     id: 'menu.history',
     description: 'Menu item "History"',
     defaultMessage: 'Transactions',
-  },
-  marketmaker: {
-    id: 'menu.marketmaker',
-    description: 'Menu item "Marketmaker"',
-    defaultMessage: 'Earn',
-  },
+  }
+  
 })
 
 export const getMenuItems = (props) => {
@@ -84,21 +80,7 @@ export const getMenuItems = (props) => {
     },
   ]
 
-  // Marketmaker pages ********
-  if (!isWidgetBuild) {
-    const marketmakerItem = {
-      title: intl.formatMessage(messages.marketmaker),
-      link: (externalConfig.opts.ui.farmLink)
-        ? externalConfig.opts.ui.farmLink
-        : !isChromeExtension ? `${links.marketmaker}/` : `${links.marketmaker}/{MATIC}WBTC`,
-      exact: true,
-      currentPageFlag: true,
-      isExternal: (externalConfig.opts.ui.farmLink) ? true : false
-    }
-
-    itemsWithWallet.push(marketmakerItem)
-    itemsWithoutWallet.push(marketmakerItem)
-  }
+ 
 
   if (onlyEvmWallets && metamask.isConnected()) return itemsWithWallet
 
