@@ -1,9 +1,9 @@
 const seo = {
   config: {
     medium: 'https://medium.com/@swaponline',
-    twitter: 'https://twitter.com/SwapOnlineTeam',
+    twitter: 'https://twitter.com/finex_banking',
     facebook: 'https://www.facebook.com/SwapOnlineTeam',
-    telegram: 'https://t.me/swaponline',
+    telegram: 'https://t.me/+fmVdnicRrZtlNTc1',
     email: 'info@swaponline.io',
     mainUrl: 'https://swaponline.io',
     logo: 'https://wiki.swaponline.io/assets/swaponline_io.svg',
