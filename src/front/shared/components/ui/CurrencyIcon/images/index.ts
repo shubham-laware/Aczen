@@ -2,6 +2,7 @@ import btc from './btc.svg'
 import eth from './eth.svg'
 import bnb from './bnb.svg'
 import matic from './matic.svg'
+import aczen from './aczen.png'
 import arbeth from './arbeth.svg'
 import aureth from './aureth.svg'
 import xdai from './xdai.svg'
@@ -52,6 +53,7 @@ export default {
   eth,
   bnb,
   matic,
+  aczen,
   arbeth,
   aureth,
   xdai,

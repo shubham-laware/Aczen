@@ -29,6 +29,14 @@ export default {
     blockExplorerUrls: [link.maticscan],
     hasWalletConnect: true,
   },
+  ACZEN: {
+    currency: 'MATIC',
+    chainId: '0x13882',
+    networkVersion: 80002,
+    chainName: 'Aczen',
+    rpcUrls: [web3.aczen_provider],
+    blockExplorerUrls: [link.aczenscan]
+  },
   ARBETH: {
     currency: 'ARBETH',
     chainId: '0xA4B1',

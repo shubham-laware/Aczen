@@ -14,6 +14,7 @@ import { getActivatedCurrencies } from 'helpers/user'
 
 const onlyEvmWallets = (config?.opts?.ui?.disableInternalWallet) ? true : false
 const enabledCurrencies = config.opts.curEnabled
+console.log("ENABLED CURRENCIES",enabledCurrencies)
 
 /*
   Когда добавляем reducers, для старых пользователей они не инициализированы
@@ -160,15 +161,22 @@ const getBalances = () => {
 
   const evmBalancesFuncs: Array<any> = []
   Object.keys(config.enabledEvmNetworks).forEach((evmType) => {
-    if (!enabledCurrencies || enabledCurrencies[evmType.toLowerCase()]) {
+    const lowercaseEvmType = evmType.toLowerCase();
+    if (!enabledCurrencies || enabledCurrencies[lowercaseEvmType]) {
       if ((onlyEvmWallets && metamask.isEnabled() && metamask.isConnected()) || !onlyEvmWallets) {
-        evmBalancesFuncs.push({
-          func: actions[evmType.toLowerCase()].getBalance,
-          name: evmType.toLowerCase(),
-        })
+        const currencyActions = actions[lowercaseEvmType];
+        if (currencyActions && currencyActions.getBalance) {
+          evmBalancesFuncs.push({
+            func: currencyActions.getBalance,
+            name: lowercaseEvmType,
+          });
+        } else {
+          console.warn(`Actions for ${lowercaseEvmType} are not defined or do not have a getBalance method.`);
+        }
       }
     }
-  })
+  });
+
 
   return new Promise(async (resolve) => {
     const balances = [
@@ -588,6 +596,7 @@ const getText = () => {
       ethData,
       bnbData,
       maticData,
+      aczenData,
       arbethData,
       aurethData,
       xdaiData,
@@ -630,6 +639,11 @@ const getText = () => {
     \r\n
     MATIC address: ${maticData.address}\r\n
     Private key: ${maticData.privateKey}\r\n
+    \r\n
+    # MATIC CHAIN
+    \r\n
+    ACZEN address: ${aczenData.address}\r\n
+    Private key: ${aczenData.privateKey}\r\n
     \r\n
     # ARBITRUM CHAIN
     \r\n

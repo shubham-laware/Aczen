@@ -55,6 +55,8 @@ class History extends Component<any, any> {
       }
     } = props
 
+
+    
     const commentsList = actions.comments.getComments()
 
     this.state = {
@@ -65,6 +67,8 @@ class History extends Component<any, any> {
       renderedItems: 10,
       commentsList: commentsList || null
     }
+
+
   }
 
   componentDidMount() {
@@ -116,6 +120,7 @@ class History extends Component<any, any> {
   handleFilterChange = ({ target }) => {
     const { value } = target
 
+    
     this.setState(() => ({ filterValue: value }))
   }
 

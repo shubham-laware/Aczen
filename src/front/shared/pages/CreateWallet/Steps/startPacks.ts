@@ -12,6 +12,8 @@ export const defaultPack = [
 
   ...(!curEnabled || curEnabled.matic ? [{ name: 'MATIC', capture: 'MATIC Token' }] : []),
 
+  ...(!curEnabled || curEnabled.aczen ? [{ name: 'ACZEN', capture: 'ACZEN Token' }] : []),
+
   ...(!curEnabled || curEnabled.arbeth ? [{ name: 'ARBETH', capture: 'Arbitrum ETH' }] : []),
 
   ...(!curEnabled || curEnabled.xdai ? [{ name: 'XDAI', capture: 'xDai' }] : []),
@@ -72,8 +74,15 @@ export const widgetPack = [
   ...((config.erc20 && (!curEnabled || curEnabled.eth)) ? [{ name: 'ERC20', capture: 'Token', baseCurrency: 'ETH' }] : []),
   ...(!curEnabled || curEnabled.bnb ? [{ name: 'BNB', capture: 'Binance Coin' }] : []),
   ...((config.bep20 && (!curEnabled || curEnabled.bnb)) ? [{ name: 'BEP20', capture: 'Token', baseCurrency: 'BNB' }] : []),
+
+
+  
+  ...(!curEnabled || curEnabled.aczzen ? [{ name: 'ACZEN', capture: 'ACZEN Token' }] : []),
+  ...((config.erc20matic && (!curEnabled || curEnabled.aczen)) ? [{ name: 'ERC20MATIC', capture: 'Token', baseCurrency: 'MATIC' }] : []),
+
   ...(!curEnabled || curEnabled.matic ? [{ name: 'MATIC', capture: 'MATIC Token' }] : []),
   ...((config.erc20matic && (!curEnabled || curEnabled.matic)) ? [{ name: 'ERC20MATIC', capture: 'Token', baseCurrency: 'MATIC' }] : []),
+
   ...(!curEnabled || curEnabled.arbeth ? [{ name: 'ARBETH', capture: 'Arbitrum ETH' }] : []),
   ...(!curEnabled || curEnabled.xdai ? [{ name: 'XDAI', capture: 'xDai' }] : []),
   ...((config.erc20xdai && (!curEnabled || curEnabled.xdai)) ? [{ name: 'ERC20XDAI', capture: 'Token', baseCurrency: 'XDAI' }] : []),

@@ -103,10 +103,11 @@ export const getWidgetCurrencies = () => {
   return widgetCurrencies
 }
 
-export const filterUserCurrencyData = (currencyData) =>
-  currencyData.filter((wallet) =>
+export const filterUserCurrencyData = (currencyData) =>{
+ return  currencyData.filter((wallet) =>
     isAllowedCurrency(wallet.isToken ? wallet.tokenKey.toUpperCase() : wallet.currency, wallet.address, wallet.isMetamask)
   )
+}
 
 export const isAllowedCurrency = (currency = '', address = '', isMetamask = false) => {
   const { core: { hiddenCoinsList } } = store.getState()

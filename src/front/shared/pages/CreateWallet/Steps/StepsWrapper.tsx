@@ -20,6 +20,8 @@ export default class StepsWrapper extends Component<any, any> {
 
   widgetStartPack = widgetPack
 
+
+
   constructor(props) {
     super(props)
     const { currencies } = props
@@ -74,16 +76,21 @@ export default class StepsWrapper extends Component<any, any> {
 
     const enabledCurrencies = getActivatedCurrencies()
 
+
     const items = currencies
       .filter(({ addAssets }) => addAssets)
       // @ts-ignore: strictNullChecks
       .filter(({ name }) => enabledCurrencies.includes(name))
 
+
     const untouchable = this.defaultStartPack.map(({ name }) => name)
+
+
 
     const coins = items
       .map(({ name, fullTitle }) => ({ name, capture: fullTitle }))
       .filter(({ name }) => !untouchable.includes(name))
+
 
     const curState = {}
     items.forEach(({ currency }) => { curState[currency] = false })
@@ -221,6 +228,8 @@ export default class StepsWrapper extends Component<any, any> {
       showPinContent,
     } = this.props
     const { curState, startPack } = this.state
+
+
 
     return (
       <div>

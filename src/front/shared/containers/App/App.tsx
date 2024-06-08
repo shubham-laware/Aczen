@@ -183,7 +183,6 @@ class App extends React.Component<RouteComponentProps<any>, any> {
     await metamask.web3connect.onInit(() => {
       const _checkChain = () => {
         const wrongNetwork = metamask.isConnected() && !metamask.isCorrectNetwork()
-
         if (wrongNetwork) {
           this.popupIncorrectNetwork()
         } else {

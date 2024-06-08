@@ -36,6 +36,8 @@ function CreateWallet(props) {
     core: { hiddenCoinsList },
   } = props
 
+
+
   const { locale } = useIntl()
 
   const forcedCurrency = pathname.split('/')[2]
@@ -118,10 +120,15 @@ function CreateWallet(props) {
     if (!Object.values(currencies).includes(true) && step === 1) {
       setError('Choose something')
       return
+
     }
+
 
     const isIgnoreSecondStep = !Object.keys(currencies).includes('BTC') || (Object.keys(currencies).includes('BTC') && hash !== '#pin')
     const standardConfigs = EXISTING_STANDARDS.map((standard) => TOKEN_STANDARDS[standard])
+
+    
+
 
     for (const standardObj of standardConfigs) {
       const standardName = standardObj.standard.toUpperCase()

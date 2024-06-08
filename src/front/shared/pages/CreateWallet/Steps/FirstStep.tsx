@@ -18,6 +18,7 @@ const isWidgetBuild = config && config.isWidget
 function FirstStep(props) {
   const { onClick, error, curState, startPack, handleClick, showPinContent } = props
 
+
   return (
     <>
       <>

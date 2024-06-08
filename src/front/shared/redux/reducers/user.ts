@@ -39,6 +39,16 @@ export const initialState = {
     balanceError: null,
     infoAboutCurrency: null,
   },
+
+  aczenData: {
+    balance: 0,
+    isBalanceFetched: false,
+    currency: 'MATIC',
+    fullName: 'Aczen Token',
+    balanceError: null,
+    infoAboutCurrency: null,
+  },
+
   arbethData: {
     balance: 0,
     isBalanceFetched: false,

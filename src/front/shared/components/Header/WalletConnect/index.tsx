@@ -38,6 +38,8 @@ function WalletConnect(props) {
     actions.modals.open(constants.modals.WalletConnectAccount)
   }
 
+ 
+
   const currencyName = metamaskData.currency.toLowerCase()
 
   return (

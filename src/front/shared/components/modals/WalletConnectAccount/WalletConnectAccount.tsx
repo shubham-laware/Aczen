@@ -28,7 +28,8 @@ type ComponentState = {
 }) => ({
   dashboardModalsAllowed,
   metamaskData,
-}))
+}
+))
 @cssModules(styles, { allowMultiple: true })
 class WalletConnectAccount extends React.Component<any, ComponentState> {
   constructor(props) {
@@ -94,13 +95,17 @@ class WalletConnectAccount extends React.Component<any, ComponentState> {
         address,
         balance,
         currency,
+        networkVersion,
       },
     } = this.props
+
+
 
     const { isPending, balanceUpdating } = this.state
 
     const web3Type = metamask.web3connect.getProviderType()
     const isAvailableNetwork = metamask.isAvailableNetwork()
+    
 
     const walletAddress = isAvailableNetwork ?
       (
@@ -120,9 +125,14 @@ class WalletConnectAccount extends React.Component<any, ComponentState> {
       `${balance} ${currency}` :
       '0'
 
-    const chainName = isAvailableNetwork ?
-      config.evmNetworks[currency].chainName :
+    const isChainNameAvailable:any =
+    Object.values(config.evmNetworks).find(
+      (network:any) => network.networkVersion === networkVersion
+    )
+    
+    const chainName = isAvailableNetwork ? isChainNameAvailable .chainName :
       <FormattedMessage id="UnknownNetworkConnectedWallet" defaultMessage="Unknown Network" />
+
 
     return (
       <div styleName={`modalOverlay ${dashboardModalsAllowed ? "modalOverlay_dashboardView" : ""}`}>

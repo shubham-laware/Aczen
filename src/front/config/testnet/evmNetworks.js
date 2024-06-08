@@ -20,11 +20,20 @@ export default {
   },
   MATIC: {
     currency: 'MATIC',
-    chainId: '0x13881',
-    networkVersion: 80001,
-    chainName: 'Matic Mumbai Testnet',
+    chainId: '0x13882',
+    networkVersion: 80002,
+    chainName: 'Polygon Amoy Testnet',
     rpcUrls: [web3.matic_provider],
     blockExplorerUrls: [link.maticscan]
+  },
+
+  ACZEN: {
+    currency: 'MATIC',
+    chainId: '0x13882',
+    networkVersion: 80002,
+    chainName: 'Aczen',
+    rpcUrls: [web3.aczen_provider],
+    blockExplorerUrls: [link.aczenscan]
   },
   ARBETH: {
     currency: 'ARBETH',
@@ -124,3 +133,5 @@ export default {
     hasWalletConnect: false,
   },
 }
+
+

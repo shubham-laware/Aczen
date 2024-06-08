@@ -112,6 +112,7 @@ type WithdrawModalState = {
       ethData,
       bnbData,
       maticData,
+      aczenData,
       arbethData,
       aurethData,
       xdaiData,
@@ -137,6 +138,7 @@ type WithdrawModalState = {
       ethData,
       bnbData,
       maticData,
+      aczenData,
       arbethData,
       aurethData,
       xdaiData,
@@ -525,6 +527,8 @@ class WithdrawModal extends React.Component<WithdrawModalProps, WithdrawModalSta
       data: { currency, address, invoice, onReady },
       name,
     } = this.props
+
+
 
     this.setState(() => ({
       isShipped: true,

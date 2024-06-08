@@ -98,7 +98,7 @@ const webpackConfig = {
     }),
     new ProgressBarPlugin({ clear: false }),
     new FaviconsWebpackPlugin({
-      logo: config.paths.client('favicon.png'),
+      logo: config.paths.client('favicon.jpeg'),
       path: config.base,
       favicons: {
         appName: 'Wallet',
@@ -106,7 +106,7 @@ const webpackConfig = {
       },
     }),
     new HtmlWebpackPlugin({
-      title: 'Hot Wallet with p2p exchange',
+      title: 'Aczen Bridge',
       isWidget: config.isWidget,
       isBinanceBuild: config.binance,
       template: config.paths.client('index.html'),

@@ -35,6 +35,7 @@ const isWidgetBuild = config && config.isWidget
       ethData,
       bnbData,
       maticData,
+      aczenData,
       arbethData,
       aurethData,
       xdaiData,
@@ -65,6 +66,7 @@ const isWidgetBuild = config && config.isWidget
     const userCurrencyData = [
       ethData,
       bnbData,
+      aczenData,
       maticData,
       arbethData,
       aurethData,
@@ -97,6 +99,7 @@ const isWidgetBuild = config && config.isWidget
         ethData,
         bnbData,
         maticData,
+        aczenData,
         arbethData,
         aurethData,
         xdaiData,
@@ -235,6 +238,8 @@ class Wallet extends PureComponent<any, any> {
       intl: { locale },
     } = this.props
 
+
+
     if (pathname.toLowerCase() === links.connectWallet.toLowerCase()) {
       this.handleConnectWallet()
     }
@@ -272,6 +277,7 @@ class Wallet extends PureComponent<any, any> {
       ({ currency }) => currency.toLowerCase() === params.currency.toLowerCase(),
     )
 
+
     actions.modals.open(constants.modals.Withdraw, {
       ...item,
       toAddress: address,
@@ -287,9 +293,12 @@ class Wallet extends PureComponent<any, any> {
     } = this.props
 
     history.push(localisedUrl(locale, links.createWallet))
+    
+
   }
 
   handleReceive = (context) => {
+    console.log("DEPOSIT",context)
     const widgetCurrencies = user.getWidgetCurrencies()
     const filteredCurrencies = user.filterUserCurrencyData(actions.core.getWallets())
 
@@ -327,7 +336,10 @@ class Wallet extends PureComponent<any, any> {
       intl: { locale },
     } = this.props
     const userCurrencyData = actions.core.getWallets({})
+
+
     const availableWallets = user.filterUserCurrencyData(userCurrencyData)
+
 
     if (
       !Object.keys(availableWallets).length
@@ -387,6 +399,8 @@ class Wallet extends PureComponent<any, any> {
     currencyData.forEach((wallet) => {
       wallet.fiatBalance = this.returnFiatBalanceByWallet(wallet)
     })
+
+
 
     return currencyData
   }
@@ -516,7 +530,9 @@ class Wallet extends PureComponent<any, any> {
 
     let userWallets = user.filterUserCurrencyData(actions.core.getWallets({}))
 
+
     userWallets = this.addFiatBalanceInUserCurrencyData(userWallets)
+
 
     const balanceInBtc = this.returnTotalBalanceInBtc(userWallets)
     const allFiatBalance = this.returnTotalFiatBalance(userWallets)

@@ -20,6 +20,8 @@ import Cupture, {
 } from './texts'
 
 function SecondStep(props) {
+
+
   const {
     intl: { locale },
     onClick,
@@ -29,6 +31,8 @@ function SecondStep(props) {
     forcedCurrencyData,
     btcData,
   } = props
+
+
 
   const _protection = {
     pin: {

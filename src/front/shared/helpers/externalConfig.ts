@@ -4,6 +4,8 @@ import { constants } from 'swap.app'
 import BigNumber from 'bignumber.js'
 import reducers from 'redux/core/reducers'
 import TOKEN_STANDARDS, { EXISTING_STANDARDS } from 'helpers/constants/TOKEN_STANDARDS'
+console.log("CONFIG:",config)
+
 
 const getCustomTokenConfig = () => {
   const tokensInfo = JSON.parse(localStorage.getItem('customToken') || '{}')
@@ -39,6 +41,7 @@ const externalConfig = () => {
       eth: true,
       bnb: true,
       matic: true,
+      aczen:true,
       arbeth: true,
       aureth: true,
       xdai: true,
@@ -60,6 +63,7 @@ const externalConfig = () => {
       eth: true,
       bnb: false,
       matic: false,
+      aczen:false,
       arbeth: false,
       aureth: false,
       xdai: false,
@@ -273,6 +277,7 @@ const externalConfig = () => {
     CUR_ETH_DISABLED: `eth`,
     CUR_BNB_DISABLED: `bnb`,
     CUR_MATIC_DISABLED: `matic`,
+    CUR_ACZEN_DISABLED:'aczen',
     CUR_ARBITRUM_DISABLED: `arbeth`,
     CUR_XDAI_DISABLED: `xdai`,
     CUR_FTM_DISABLED: `ftm`,
@@ -296,6 +301,8 @@ const externalConfig = () => {
   }
 
 
+
+
   config.enabledEvmNetworks = Object.keys(config.evmNetworks)
     .filter((key) => !config.opts.curEnabled || config.opts.curEnabled[key.toLowerCase()])
     .reduce((acc, key) => {
@@ -303,6 +310,7 @@ const externalConfig = () => {
 
       return acc
     }, {})
+
 
   config.enabledEvmNetworkVersions = Object.values(config.enabledEvmNetworks).map(
     (info: { networkVersion: number }) => info.networkVersion

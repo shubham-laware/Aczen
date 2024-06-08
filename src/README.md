@@ -499,7 +499,7 @@
 │   │   ├── testnet.widget.dev.js
 │   │   └── testnet.widget.prod.js
 │   ├── custom.d.ts
-│   ├── externalConfigs
+│   ├── s
 │   │   ├── mainnet-default.js
 │   │   ├── mainnet-localhost.js
 │   │   ├── swaponline.github.io.js

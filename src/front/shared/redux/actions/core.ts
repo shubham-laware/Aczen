@@ -456,6 +456,8 @@ const getWallets = (options: IUniversalObj = {}) => {
 
   const onlyEvmWallets = (config?.opts?.ui?.disableInternalWallet) ? true : false
 
+
+  
   const {
     user: {
       btcData,
@@ -467,6 +469,7 @@ const getWallets = (options: IUniversalObj = {}) => {
       ethData,
       bnbData,
       maticData,
+      aczenData,
       arbethData,
       aurethData,
       xdaiData,
@@ -483,6 +486,7 @@ const getWallets = (options: IUniversalObj = {}) => {
       metamaskData,
     },
   } = getState()
+
 
   const metamaskConnected = metamask.isEnabled() && metamask.isConnected()
   // if enabledCurrencies equals FALSE then all currencies is enabled
@@ -511,6 +515,7 @@ const getWallets = (options: IUniversalObj = {}) => {
       || enabledCurrencies.eth
       || enabledCurrencies.bnb
       || enabledCurrencies.matic
+      || enabledCurrencies.aczen
       || enabledCurrencies.arbeth
       || enabledCurrencies.xdai
       || enabledCurrencies.ftm
@@ -565,6 +570,14 @@ const getWallets = (options: IUniversalObj = {}) => {
           ? [maticData]
           : []
         : [maticData]
+      : []),
+          // =====================================
+    ...(!enabledCurrencies || enabledCurrencies.aczen
+      ? metamaskConnected
+        ? withInternal
+          ? [aczenData]
+          : []
+        : [aczenData]
       : []),
     // =====================================
     ...(!enabledCurrencies || enabledCurrencies.arbeth
@@ -670,7 +683,9 @@ const getWallets = (options: IUniversalObj = {}) => {
     ...data,
   }))
 
+
   const data = allData.filter((item) => item?.address && item?.currency && withoutExternal ? !item.isMetamask : true)
+
 
   return (config && config.isWidget) ? sortWallets(data) : data
 }

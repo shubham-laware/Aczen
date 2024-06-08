@@ -10,6 +10,7 @@ const defaultCurrencyColors = {
   'btc (sms-protected)': 'orange',
   'btc (pin-protected)': 'orange',
   'matic': '#8247e5',
+  'aczen': '#000',
   'xdai': '#48a9a6',
   'ftm': '#11b4ec',
   'avax': '#e84142',
@@ -40,8 +41,11 @@ const Coin = function (props: CoinProps) {
   } = props
 
   const lowerName = name.toLowerCase()
+
   const isIconExist = currencyIcons.includes(lowerName)
+
   const iconSource = web3Icons[name]
+  
   let isIconConfigExist = false
 
   if (
@@ -145,6 +149,7 @@ const Coin = function (props: CoinProps) {
     style: {},
     source: iconSource,
   }
+
 
   if (isIconExist || isIconConfigExist) {
     currencyIconProps.styleName = 'icon'

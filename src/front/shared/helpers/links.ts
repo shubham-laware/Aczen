@@ -10,6 +10,7 @@ const linksManager = {
   marketmaker_short: '/mm',
 
   history: '/history',
+  rewardsLink:'/rewards',
   createWallet: '/createWallet',
   restoreWallet: '/restoreWallet',
   restoreWalletMnemonic: '/restoreWalletMnemonic',

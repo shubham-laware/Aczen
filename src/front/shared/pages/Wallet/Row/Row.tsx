@@ -83,9 +83,15 @@ class Row extends Component<RowProps, RowState> {
     super(props)
     
     const { currency, itemData } = props
-    const currencyName = currency.currency
+
+    
+    const currencyName = currency.currency;
+
     const isToken = erc20Like.isToken({ name: currencyName })
     const reduxActionName = itemData.standard || currencyName.toLowerCase()
+
+
+    
 
     this.state = {
       isBalanceFetching: false,
@@ -177,9 +183,9 @@ class Row extends Component<RowProps, RowState> {
             break
           default:
             if (isMetamask && !isToken && metamask.isAvailableNetwork()) {
-              await metamask.getBalance()
+              const result = await metamask.getBalance()
             } else {
-              await actions[reduxActionName].getBalance(currency)
+             const result= await actions[reduxActionName].getBalance(currency)
             }
         }
 

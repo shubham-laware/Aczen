@@ -3,6 +3,7 @@ export const COIN_TYPE = Object.freeze({
   ETH_TOKEN: 'ETH_TOKEN',
   BNB_TOKEN: 'BNB_TOKEN',
   MATIC_TOKEN: 'MATIC_TOKEN',
+  ACZEN_TOKEN: 'ACZ_TOKEN',
   XDAI_TOKEN: 'XDAI_TOKEN',
   FTM_TOKEN: 'FTM_TOKEN',
   AVAX_TOKEN: 'AVAX_TOKEN',
@@ -19,6 +20,7 @@ export const COIN_TYPE = Object.freeze({
 export const TOKEN_STANDARD = Object.freeze({
   ERC20: 'ERC20',
   BEP20: 'BEP20',
+  ERC20ACZ: 'ERC20ACZ',
   ERC20MATIC: 'ERC20MATIC',
   ERC20XDAI: 'ERC20XDAI',
   ERC20FTM: 'ERC20FTM',
@@ -36,6 +38,7 @@ export const TOKEN_STANDARD = Object.freeze({
 export const BLOCKCHAIN = Object.freeze({
   BTC: 'BTC',
   GHOST: 'GHOST',
+  ACZ:'ACZ',
   NEXT: 'NEXT',
   ETH: 'ETH',
   BNB: 'BNB', // TODO: rename with BSC
@@ -58,6 +61,7 @@ export const BASE_TOKEN_CURRENCY = Object.freeze({
   ETH: 'ETH',
   BNB: 'BNB',
   MATIC: 'MATIC',
+  ACZ:'ACZ',
   XDAI: 'XDAI',
   FTM: 'FTM',
   AVAX: 'AVAX',
@@ -108,6 +112,16 @@ export const COIN_DATA = {
     blockchain: BLOCKCHAIN.MATIC,
     model: COIN_MODEL.AB,
     precision: 18,
+  },
+
+    ACZEN: {
+    ticker: 'MATIC',
+    name: 'Aczen Token',
+    type: COIN_TYPE.NATIVE,
+    blockchain: BLOCKCHAIN.ACZ,
+    model: COIN_MODEL.AB,
+    precision: 18,
+
   },
   ARBETH: {
     ticker: 'ARBETH',
@@ -279,6 +293,7 @@ export const NATIVE = {
   btc: 'BTC',
   eth: 'ETH',
   bnb: 'BNB',
+  acz: 'acz',
   matic: 'MATIC',
   arbeth: 'ARBETH',
   aureth: 'AURETH',
@@ -302,6 +317,7 @@ export const BNB_TOKENS = {
 
 export const MATIC_TOKENS = {
   wbtc: 'WBTC',
+  acz:  'acz',
 }
 
 export const ETH_TOKENS = {

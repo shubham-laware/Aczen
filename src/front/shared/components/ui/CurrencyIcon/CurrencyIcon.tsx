@@ -9,10 +9,12 @@ import config from 'app-config'
 
 export const currencyIcons = Object.keys(icons)
 
+
 function returnTokenIcon(name) {
   try {
     for (const key in TOKEN_STANDARDS) {
       const standard = TOKEN_STANDARDS[key].standard
+
       const icon = config[standard][name]?.icon
 
       if (icon) return icon
@@ -33,6 +35,7 @@ type CurrencyIconProps = {
 
 const CurrencyIcon = (props: CurrencyIconProps) => {
   const { className, style, name: coinName , source } = props
+
   const {
     coin: name,
     blockchain,
@@ -56,7 +59,9 @@ const CurrencyIcon = (props: CurrencyIconProps) => {
 
   const tokenIcon = returnTokenIcon(name.toLowerCase())
 
+
   if (tokenIcon) {
+
     return (
       <img
         styleName="sizeLimit"
@@ -70,14 +75,18 @@ const CurrencyIcon = (props: CurrencyIconProps) => {
 
   const isIconExist = currencyIcons.includes(name.toLowerCase())
 
+
+
   if (isIconExist) {
+  
+
     return (
       <img
         styleName="sizeLimit"
         className={className}
         src={icons[name.toLowerCase()]}
         alt={`${name} icon`}
-        role="image"
+        role="image"  
       />
     )
   }

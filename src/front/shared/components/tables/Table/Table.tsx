@@ -85,6 +85,10 @@ export default class Table extends React.Component<TableProps, TableState> {
       className,
     } = this.props
 
+
+
+
+
     return (
       <table styleName="table" className={`table ${className}`} ref={(table) => this.linkOnTable = table}>
         <thead ref={(thead) => this.linkOnTableHead = thead}>

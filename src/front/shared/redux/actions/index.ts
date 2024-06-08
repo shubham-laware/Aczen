@@ -46,6 +46,7 @@ export default {
   eth: EthLikeAction.ETH,
   bnb: EthLikeAction.BNB,
   matic: EthLikeAction.MATIC,
+  aczen: EthLikeAction.ACZEN,
   arbeth: EthLikeAction.ARBETH,
   aureth: EthLikeAction.AURETH,
   xdai: EthLikeAction.XDAI,

@@ -632,6 +632,18 @@ export default {
     adminFeeObj: externalConfig.opts?.fee?.matic,
     web3: new Web3(providers.matic_provider),
   }),
+
+  ACZEN: new EthLikeAction({
+    coinName: 'Aczen Token',
+    ticker: 'ACZEN  ',
+    chainId: externalConfig.evmNetworks.ACZEN.chainId,
+    explorerApiName: 'aczenscan',
+    explorerApiKey: externalConfig.api.polygon_ApiKey,
+    explorerLink: externalConfig.link.aczenscan,
+    adminFeeObj: externalConfig.opts?.fee?.matic,
+    web3: new Web3(providers.aczen_provider),
+  }),
+
   ARBETH: new EthLikeAction({
     coinName: 'Arbitrum ETH',
     ticker: 'ARBETH',

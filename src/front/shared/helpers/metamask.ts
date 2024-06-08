@@ -48,8 +48,10 @@ function setWeb3connect(networkId) {
   const newNetworkData = Object.values(config.evmNetworks)
     .find((networkInfo: IUniversalObj) => networkInfo.networkVersion === networkId) as EvmNetworkConfig
 
+
   if (newNetworkData) {
     if (web3connect) {
+      console.log("WEB 3 CONNECT : TRUE")
       cleanWeb3connectListeners()
     }
 
@@ -59,6 +61,7 @@ function setWeb3connect(networkId) {
         [newNetworkData.networkVersion]: newNetworkData.rpcUrls[0],
       },
     })
+
 
     web3connect.on('connected', handleConnected)
     web3connect.on('disconnect', handleDisconnected)
@@ -175,22 +178,27 @@ const getChainId = () => {
   return Number(Number(hexChainId).toString(10))
 }
 
+
 const isAvailableNetwork = () => {
   const networkVersion = getChainId()
 
   const existsNetwork = Object.keys(config.evmNetworks).filter((key) => {
     return (config.evmNetworks[key].networkVersion == networkVersion)
   })
+
+
   if (existsNetwork.length) {
     if (config.opts.curEnabled && !config.opts.curEnabled[existsNetwork[0].toLowerCase()]) {
       return false
     }
   }
+
   return (config.evmNetworkVersions.includes(networkVersion))
 }
 
 const isAvailableNetworkByCurrency = (currency) => {
   const { blockchain } = getCoinInfo(currency)
+  
   const ticker = currency.toUpperCase()
 
   const isUTXOModel = COIN_DATA[ticker]?.model === COIN_MODEL.UTXO
@@ -322,7 +330,8 @@ const handleConnectMetamask = (params: MetamaskConnectParams = {}) => {
 }
 
 const switchNetwork = async (nativeCurrency) => {
-  const { chainId } = config.evmNetworks[nativeCurrency]
+  const { chainId } = config.evmNetworks[nativeCurrency.toUpperCase()];
+
 
   if (!window.ethereum) return false
 
@@ -339,7 +348,7 @@ const switchNetwork = async (nativeCurrency) => {
 
     if (switchError.code === 4902 || tipAddNetwork) {
       try {
-        return await addCurrencyNetwork(nativeCurrency)
+        return await addCurrencyNetwork(nativeCurrency);
       } catch (addError) {
         console.group('%c add a new Metamask network', 'color: red;')
         console.log(addError)
@@ -360,6 +369,8 @@ const addCurrencyNetwork = async (currency) => {
   }
 
   const { coin, blockchain } = getCoinInfo(currency)
+
+
   const nativeCurrency = blockchain || coin.toUpperCase()
 
   const {
@@ -369,12 +380,16 @@ const addCurrencyNetwork = async (currency) => {
     blockExplorerUrls,
   } = config.evmNetworks[nativeCurrency]
 
+
   const {
     name,
     ticker: symbol,
     precision: decimals,
   } = COIN_DATA[nativeCurrency]
 
+
+
+ 
   const params = {
     chainId,
     chainName,
@@ -387,7 +402,10 @@ const addCurrencyNetwork = async (currency) => {
     blockExplorerUrls,
   }
 
-  const web3 = web3connect.getWeb3()
+
+
+
+  const web3 =  web3connect.getWeb3()
   const { ethereum } = window
 
   if (web3.eth  && ethereum) {

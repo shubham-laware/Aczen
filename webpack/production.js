@@ -14,7 +14,7 @@ export default (webpackConfig) => {
   const hashPrefix = (process && process.env && process.env.BUILD_TYPE) ? process.env.BUILD_TYPE : `default`
 
   webpackConfig.output = {
-    path: config.paths.base(`build-${config.dir}`),
+    path: config.paths.base('../BuildWallet/build-mainnet'),
     filename: `${hashPrefix}-[name].[hash:6].js`,
     chunkFilename: `${hashPrefix}-[name].[hash:6].js`,
     publicPath: config.publicPath,

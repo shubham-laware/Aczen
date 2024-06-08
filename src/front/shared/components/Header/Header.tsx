@@ -74,7 +74,7 @@ class Header extends Component<any, any> {
       location: { pathname },
       intl,
     } = props
-    const { exchange, home, wallet } = links
+    const { exchange, home, wallet ,rewardsLink} = links
     const { isWalletCreate } = constants.localStorage
 
     const dynamicPath = pathname.includes(exchange) ? `${pathname}` : `${home}`
@@ -431,7 +431,7 @@ class Header extends Component<any, any> {
       isInputActive,
     } = this.props
 
-    const { exchange, wallet } = links
+    const { exchange, wallet,rewardsLink } = links
 
     const isWalletPage =
       pathname.includes(wallet) || pathname === `/ru${wallet}` || pathname === `/`

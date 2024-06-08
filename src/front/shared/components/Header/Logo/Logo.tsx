@@ -12,6 +12,9 @@ import ThemeTooltip from '../../ui/Tooltip/ThemeTooltip'
 import logoBlack from 'shared/images/logo/logo-black.svg'
 import logoColored from 'shared/images/logo/logo-colored.svg'
 import AczenLogo from 'shared/images/logo/AczenLogo.svg'
+import AczenLogoLight from 'shared/images/logo/AczenLogoLight.svg'
+import AczenLogoN from 'shared/images/logo/AczenLogoN.svg'
+
 
 
 /* uncomment to debug */
@@ -26,6 +29,8 @@ import AczenLogo from 'shared/images/logo/AczenLogo.svg'
 
 
 const isDark = localStorage.getItem(constants.localStorage.isDark)
+const theme = document.body.dataset.scheme;
+console.log("THEME :",theme)
 const isMainnet = process.env.MAINNET
 
 @withRouter
@@ -64,7 +69,7 @@ class Logo extends Component<any, {}> {
           :
           <Fragment>
             <Link to={goToUrl} data-tip data-for="logo">
-              <img src={AczenLogo} alt={imgAlt} />
+              <img src={AczenLogoN} alt={imgAlt} />
             </Link>
             <ThemeTooltip id="logo" effect="solid" place="bottom">
               <FormattedMessage id="logo29" defaultMessage="Go Home" />

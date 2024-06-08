@@ -18,6 +18,23 @@ interface BuildOptions {
   invoiceEnabled: boolean,
 }
 
+interface SelectedItem {
+  name: string;
+  title: string;
+  icon: string;
+  value: string;
+  fullTitle: string;
+}
+
+interface InitialState {
+  items: any[];
+  partialItems: any[];
+  addSelectedItems: SelectedItem[]; 
+  addPartialItems:any[];
+}
+
+
+
 let buildOpts: BuildOptions = {
   curEnabled: false,
   blockchainSwapEnabled: false,
@@ -114,6 +131,13 @@ const baseCurrencyConfig = {
     icon: 'matic',
     value: 'matic',
     fullTitle: 'matic token',
+  },
+  ACZEN:{
+    name: 'ACZEN',
+    title: 'ACZEN',
+    icon: 'aczen',
+    value: 'aczen',
+    fullTitle: 'aczen token',
   },
   ARBETH: {
     name: 'ARBETH',
@@ -222,7 +246,7 @@ const baseCurrencyConfig = {
   },
 }
 
-const initialState = {
+const initialState:InitialState = {
   items: [
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.eth) ? [{
       ...baseCurrencyConfig.ETH,
@@ -237,6 +261,11 @@ const initialState = {
       ...(!buildOpts.curEnabled || buildOpts.curEnabled.matic) ? [{
       ...baseCurrencyConfig.MATIC,
       blockchain: BLOCKCHAIN_TYPE.MATIC,
+      addAssets: true,
+    }] : [],
+    ...(!buildOpts.curEnabled || buildOpts.curEnabled.aczen) ? [{
+      ...baseCurrencyConfig.ACZEN,
+      blockchain: BLOCKCHAIN_TYPE.ACZ,
       addAssets: true,
     }] : [],
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.arbeth) ? [{
@@ -350,6 +379,7 @@ const initialState = {
     ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.eth) ? [baseCurrencyConfig.ETH] : [],
     ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.bnb) ? [baseCurrencyConfig.BNB] : [],
     ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.matic) ? [baseCurrencyConfig.MATIC] : [],
+    ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.matic) ? [baseCurrencyConfig.ACZEN] : [],
     ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.arbeth) ? [baseCurrencyConfig.ARBETH] : [],
     ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.aureth) ? [baseCurrencyConfig.AURETH] : [],
     ...(!buildOpts.blockchainSwapEnabled || buildOpts.blockchainSwapEnabled.xdai) ? [baseCurrencyConfig.XDAI] : [],
@@ -376,6 +406,7 @@ if (config.isWidget) {
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.eth) ? [baseCurrencyConfig.ETH] : [],
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.bnb) ? [baseCurrencyConfig.BNB] : [],
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.matic) ? [baseCurrencyConfig.MATIC] : [],
+    ...(!buildOpts.curEnabled || buildOpts.curEnabled.matic) ? [baseCurrencyConfig.ACZEN] : [],
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.arbeth) ? [baseCurrencyConfig.ARBETH] : [],
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.aureth) ? [baseCurrencyConfig.AURETH] : [],
     ...(!buildOpts.curEnabled || buildOpts.curEnabled.xdai) ? [baseCurrencyConfig.XDAI] : [],

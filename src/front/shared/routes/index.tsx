@@ -10,6 +10,7 @@ import History from 'pages/History/History'
 import CreateWallet from 'pages/CreateWallet/CreateWallet'
 import NotFound from 'pages/NotFound/NotFound'
 import Wallet from 'pages/Wallet/Wallet'
+import MyBitrefillWidget from 'pages/Rewards/MyBitrefillWidget'
 import Exchange from 'shared/pages/Exchange'
 import CurrencyWallet from 'pages/CurrencyWallet/CurrencyWallet'
 import Transaction from 'pages/Transaction/Transaction'
@@ -39,7 +40,7 @@ const routes = (
       <Route path={`${links.atomicSwap}/:orderId`} component={SwapComponent} />
       <Route path={`${links.turboSwap}/:orderId`} component={TurboSwap} />
 
-      <Route path={`/:ticker(btc|eth|bnb|matic|arbeth|aureth|xdai|ftm|avax|movr|one|phi_v1|phi|fkw|phpx|ame|ghost|next)/tx/:tx?`} component={Transaction} />
+      <Route path={`/:ticker(btc|eth|bnb|matic|aczen|arbeth|aureth|xdai|ftm|avax|movr|one|phi_v1|phi|fkw|phpx|ame|ghost|next)/tx/:tx?`} component={Transaction} />
       <Route path={`/:token(token)/:ticker/tx/:tx?`} component={Transaction} />
 
       <Route
@@ -60,6 +61,8 @@ const routes = (
       <Route path={`${links.exchange}/:sell-to-:buy/:linkedOrderId`} component={Exchange} />
       <Route path={`${links.exchange}/:sell-to-:buy`} component={Exchange} />
       <Route path={`${links.exchange}`} component={Exchange} />
+
+      <Route path={`${links.rewardsLink}`} component={MyBitrefillWidget} />
 
       <Route path={`${links.localStorage}`} component={LocalStorage} />
 

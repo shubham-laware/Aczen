@@ -2,6 +2,7 @@ export default {
   provider: 'https://mainnet.infura.io/v3/5ffc47f65c4042ce847ef66a3fa70d4c',
   binance_provider: 'https://bsc-dataseed.binance.org/',
   matic_provider: 'https://rpc-mainnet.maticvigil.com',
+  aczen_provider: 'https://polygon-amoy.g.alchemy.com/v2/7G8M24tNvm3xSsd4YxWT3_8tqg2GQjh0',
   arbitrum_provider: 'https://arb1.arbitrum.io/rpc',
   xdai_provider: 'https://rpc.gnosischain.com',
   ftm_provider: 'https://rpc.ftm.tools',

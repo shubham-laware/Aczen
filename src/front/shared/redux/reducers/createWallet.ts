@@ -4,6 +4,7 @@ export const initialState = {
     eth: false,
     bnb: false,
     matic: false,
+    aczen:false,
     arbeth: false,
     aureth: false,
     xdai: false,
